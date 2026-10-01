@@ -43,7 +43,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           rel="stylesheet"
         />
       </head>
-      <body className="flex min-h-screen flex-col bg-canvas font-sans text-ink-2 antialiased">
+      <body
+        className="flex min-h-screen flex-col bg-canvas font-sans text-ink-2 antialiased"
+        suppressHydrationWarning
+      >
         <ThemeProvider>
           <ToastProvider>
             <Header />
