@@ -5,7 +5,9 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { AdPlaceholder } from "@/components/ui/AdPlaceholder";
 import { Icon } from "@/components/icons";
 import { getCategoryBySlug, getRelatedTools, toolPath } from "@/lib/tools";
+import { getToolContent } from "@/data/tool-content";
 import { ToolStatusBadge } from "./ToolStatusBadge";
+import { ToolContent } from "./ToolContent";
 
 interface ToolLayoutProps {
   tool: Tool;
@@ -20,6 +22,7 @@ interface ToolLayoutProps {
 export function ToolLayout({ tool, children }: ToolLayoutProps) {
   const category = getCategoryBySlug(tool.category);
   const related = getRelatedTools(tool, 5);
+  const toolContent = getToolContent(tool.slug);
 
   return (
     <div className="container-x py-8 sm:py-12">
@@ -70,7 +73,10 @@ export function ToolLayout({ tool, children }: ToolLayoutProps) {
       </header>
 
       <div className="mt-8 grid animate-fade-up gap-8 [animation-delay:120ms] lg:grid-cols-[minmax(0,1fr)_300px]">
-        <div className="min-w-0">{children}</div>
+        <div className="min-w-0">
+          {children}
+          {toolContent ? <ToolContent content={toolContent} /> : null}
+        </div>
 
         <aside className="min-w-0 space-y-6" aria-label="Related tools">
           {related.length > 0 ? (
