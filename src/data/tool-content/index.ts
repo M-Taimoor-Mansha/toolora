@@ -14,6 +14,9 @@ import { jsonValidatorContent } from "./json-validator";
 import { jsonMinifierContent } from "./json-minifier";
 import { base64EncoderContent } from "./base64-encoder";
 import { base64DecoderContent } from "./base64-decoder";
+import { urlEncoderContent } from "./url-encoder";
+import { urlDecoderContent } from "./url-decoder";
+import { uuidGeneratorContent } from "./uuid-generator";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -31,6 +34,9 @@ const toolContentMap: ToolContentMap = {
   "json-minifier": jsonMinifierContent,
   "base64-encoder": base64EncoderContent,
   "base64-decoder": base64DecoderContent,
+  "url-encoder": urlEncoderContent,
+  "url-decoder": urlDecoderContent,
+  "uuid-generator": uuidGeneratorContent,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {
