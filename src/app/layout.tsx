@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     template: `%s — ${SITE.name}`,
   },
   description: SITE.description,
+  verification: {
+    google: "rE_0grMEyQFfORhUFb1mpRuFE9u1jWkC6NhMte0U8kk",
+  },
 };
 
 export const viewport: Viewport = {
@@ -35,8 +38,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Runtime font links (instead of next/font) keep the build free of
-            build-time network dependencies; the system stacks fall back if offline. */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
