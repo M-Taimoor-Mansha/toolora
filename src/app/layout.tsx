@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   verification: {
     google: "rE_0grMEyQFfORhUFb1mpRuFE9u1jWkC6NhMte0U8kk",
   },
+  other: {
+    "google-adsense-account": "ca-pub-5812302044853935",
+  },
 };
 
 export const viewport: Viewport = {
@@ -42,6 +45,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link
           href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
+        />
+        {/* Google AdSense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5812302044853935"
+          crossOrigin="anonymous"
         />
       </head>
       <body
