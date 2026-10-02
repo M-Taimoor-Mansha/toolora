@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllTools } from "@/lib/tools";
 import { categories } from "@/data/categories";
 
-const BASE_URL = "https://toolora.vercel.app";
+const BASE_URL = "https://toolora-green.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const tools = getAllTools();
