@@ -9,6 +9,11 @@ import { removeExtraSpacesContent } from "./remove-extra-spaces";
 import { textSorterContent } from "./text-sorter";
 import { textReverserContent } from "./text-reverser";
 import { slugGeneratorContent } from "./slug-generator";
+import { jsonFormatterContent } from "./json-formatter";
+import { jsonValidatorContent } from "./json-validator";
+import { jsonMinifierContent } from "./json-minifier";
+import { base64EncoderContent } from "./base64-encoder";
+import { base64DecoderContent } from "./base64-decoder";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -21,6 +26,11 @@ const toolContentMap: ToolContentMap = {
   "text-sorter": textSorterContent,
   "text-reverser": textReverserContent,
   "slug-generator": slugGeneratorContent,
+  "json-formatter": jsonFormatterContent,
+  "json-validator": jsonValidatorContent,
+  "json-minifier": jsonMinifierContent,
+  "base64-encoder": base64EncoderContent,
+  "base64-decoder": base64DecoderContent,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {
