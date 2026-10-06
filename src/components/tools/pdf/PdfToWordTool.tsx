@@ -177,7 +177,7 @@ p { margin: 0 0 10pt 0; }
           }}
         />
         <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-600 text-white">
-          <Icon name="upload" className="h-7 w-7" />
+          <Icon name="arrowUpRight" className="h-7 w-7" />
         </span>
         <p className="mt-4 text-base font-semibold text-ink">
           {file ? file.name : "Drop your PDF here or click to upload"}
