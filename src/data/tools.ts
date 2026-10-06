@@ -369,6 +369,27 @@ export const tools: Tool[] = [
     status: "live",
   },
 
+  // --- Calculators (Batch 2 — Live) ---
+  {
+    id: "tool-bmi-calculator",
+    name: "BMI Calculator",
+    slug: "bmi-calculator",
+    description:
+      "Calculate your Body Mass Index (BMI) instantly. Find out if you're underweight, normal weight, overweight, or obese — plus your ideal weight range.",
+    category: "calculators",
+    icon: "info",
+    keywords: [
+      "bmi calculator",
+      "body mass index",
+      "bmi chart",
+      "healthy weight calculator",
+      "bmi formula",
+    ],
+    featured: true,
+    popular: true,
+    status: "live",
+  },
+
   // --- Calculators (Coming Soon) ---
   {
     id: "tool-age-calculator",

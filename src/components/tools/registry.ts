@@ -19,6 +19,7 @@ import { TextReverserTool } from "./text/TextReverserTool";
 import { TextSorterTool } from "./text/TextSorterTool";
 import { WordCounterTool } from "./text/WordCounterTool";
 import { PdfToWordTool } from "./pdf/PdfToWordTool";
+import { BmiCalculatorTool } from "./calculators/BmiCalculatorTool";
 
 export interface LiveToolProps {
   tool: Tool;
@@ -54,4 +55,5 @@ export const liveToolComponents: Record<string, ComponentType<LiveToolProps>> = 
   "text-reverser": TextReverserTool,
   "slug-generator": SlugGeneratorTool,
   "pdf-to-word": PdfToWordTool,
+  "bmi-calculator": BmiCalculatorTool,
 };

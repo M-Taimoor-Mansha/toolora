@@ -18,6 +18,7 @@ import { urlEncoderContent } from "./url-encoder";
 import { urlDecoderContent } from "./url-decoder";
 import { uuidGeneratorContent } from "./uuid-generator";
 import { pdfToWordContent } from "./pdf-to-word";
+import { bmiCalculatorContent } from "./bmi-calculator";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -39,6 +40,7 @@ const toolContentMap: ToolContentMap = {
   "url-decoder": urlDecoderContent,
   "uuid-generator": uuidGeneratorContent,
   "pdf-to-word": pdfToWordContent,
+  "bmi-calculator": bmiCalculatorContent,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {
