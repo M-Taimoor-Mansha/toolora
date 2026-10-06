@@ -18,6 +18,7 @@ import { SlugGeneratorTool } from "./text/SlugGeneratorTool";
 import { TextReverserTool } from "./text/TextReverserTool";
 import { TextSorterTool } from "./text/TextSorterTool";
 import { WordCounterTool } from "./text/WordCounterTool";
+import { PdfToWordTool } from "./pdf/PdfToWordTool";
 
 export interface LiveToolProps {
   tool: Tool;
@@ -52,4 +53,5 @@ export const liveToolComponents: Record<string, ComponentType<LiveToolProps>> = 
   "text-sorter": TextSorterTool,
   "text-reverser": TextReverserTool,
   "slug-generator": SlugGeneratorTool,
+  "pdf-to-word": PdfToWordTool,
 };

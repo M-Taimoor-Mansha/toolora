@@ -347,6 +347,29 @@ export const tools: Tool[] = [
     popular: true,
     status: "live",
   },
+
+  // --- PDF Tools (Batch 2 — Live) ---
+  {
+    id: "tool-pdf-to-word",
+    name: "PDF to Word",
+    slug: "pdf-to-word",
+    description:
+      "Convert PDF documents to editable Word (.docx) files. 100% free, private, and runs entirely in your browser.",
+    category: "pdf-tools",
+    icon: "fileText",
+    keywords: [
+      "pdf to word",
+      "pdf to docx",
+      "convert pdf to word",
+      "pdf converter",
+      "free pdf to word",
+    ],
+    featured: true,
+    popular: true,
+    status: "live",
+  },
+
+  // --- Calculators (Coming Soon) ---
   {
     id: "tool-age-calculator",
     name: "Age Calculator",
@@ -365,6 +388,8 @@ export const tools: Tool[] = [
     popular: false,
     status: "coming-soon",
   },
+
+  // --- Image Tools (Coming Soon) ---
   {
     id: "tool-image-compressor",
     name: "Image Compressor",
@@ -383,6 +408,8 @@ export const tools: Tool[] = [
     popular: true,
     status: "coming-soon",
   },
+
+  // --- Generators (Coming Soon) ---
   {
     id: "tool-qr-code-generator",
     name: "QR Code Generator",

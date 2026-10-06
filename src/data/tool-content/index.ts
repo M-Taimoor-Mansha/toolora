@@ -17,6 +17,7 @@ import { base64DecoderContent } from "./base64-decoder";
 import { urlEncoderContent } from "./url-encoder";
 import { urlDecoderContent } from "./url-decoder";
 import { uuidGeneratorContent } from "./uuid-generator";
+import { pdfToWordContent } from "./pdf-to-word";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -37,6 +38,7 @@ const toolContentMap: ToolContentMap = {
   "url-encoder": urlEncoderContent,
   "url-decoder": urlDecoderContent,
   "uuid-generator": uuidGeneratorContent,
+  "pdf-to-word": pdfToWordContent,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {
