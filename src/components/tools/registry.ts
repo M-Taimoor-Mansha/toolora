@@ -20,6 +20,11 @@ import { TextSorterTool } from "./text/TextSorterTool";
 import { WordCounterTool } from "./text/WordCounterTool";
 import { PdfToWordTool } from "./pdf/PdfToWordTool";
 import { BmiCalculatorTool } from "./calculators/BmiCalculatorTool";
+import { PasswordGeneratorTool } from "./generators/PasswordGeneratorTool";
+import { PercentageCalculatorTool } from "./calculators/PercentageCalculatorTool";
+import { ImageCompressorTool } from "./image/ImageCompressorTool";
+import { JwtDecoderTool } from "./dev/JwtDecoderTool";
+import { HashGeneratorTool } from "./dev/HashGeneratorTool";
 
 export interface LiveToolProps {
   tool: Tool;
@@ -56,4 +61,9 @@ export const liveToolComponents: Record<string, ComponentType<LiveToolProps>> = 
   "slug-generator": SlugGeneratorTool,
   "pdf-to-word": PdfToWordTool,
   "bmi-calculator": BmiCalculatorTool,
+  "password-generator": PasswordGeneratorTool,
+  "percentage-calculator": PercentageCalculatorTool,
+  "image-compressor": ImageCompressorTool,
+  "jwt-decoder": JwtDecoderTool,
+  "hash-generator": HashGeneratorTool,
 };

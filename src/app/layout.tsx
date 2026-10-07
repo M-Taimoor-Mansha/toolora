@@ -31,6 +31,9 @@ export const viewport: Viewport = {
 /**
  * Applies the stored theme (or the OS preference) before first paint to
  * prevent a flash of the wrong theme. Kept dependency-free and defensive.
+ *
+ * - Runs before React hydration (inline script)
+ * - Uses suppressHydrationWarning on the tag to avoid mismatch warnings
  */
 const themeBootstrapScript = `(function(){try{var t=localStorage.getItem("${SITE.themeStorageKey}");var d=t==="dark"||((t===null||t==="system")&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);}catch(e){}})();`;
 
@@ -38,15 +41,27 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
+        {/* Theme bootstrap — must run before paint to avoid FOUC */}
+        <script
+          dangerouslySetInnerHTML={{ __html: themeBootstrapScript }}
+          suppressHydrationWarning
+        />
+
+        {/* Google Fonts — preconnect + stylesheet */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
-        {/* Google AdSense */}
+
+        {/* Google AdSense — must be a plain <script> tag, not next/script */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5812302044853935"

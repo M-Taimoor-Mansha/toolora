@@ -161,8 +161,44 @@ export const tools: Tool[] = [
     popular: true,
     status: "live",
   },
-
-  // --- Text Tools (Batch 1 — Live) ---
+{
+  id: "tool-jwt-decoder",
+  name: "JWT Decoder",
+  slug: "jwt-decoder",
+  description:
+    "Decode JSON Web Tokens (JWT) instantly. View header, payload, signature, and expiration status — all locally in your browser.",
+  category: "developer-tools",
+  icon: "shieldCheck",
+  keywords: [
+    "jwt decoder",
+    "decode jwt",
+    "jwt parser",
+    "json web token",
+    "jwt viewer",
+  ],
+  featured: true,
+  popular: true,
+  status: "live",
+},
+ {
+  id: "tool-hash-generator",
+  name: "Hash Generator",
+  slug: "hash-generator",
+  description:
+    "Generate MD5, SHA-1, SHA-256, and SHA-512 hashes of any text instantly. 100% free, private, and runs entirely in your browser.",
+  category: "developer-tools",
+  icon: "shieldCheck",
+  keywords: [
+    "hash generator",
+    "md5 generator",
+    "sha256 generator",
+    "sha512 online",
+    "hash text",
+  ],
+  featured: false,
+  popular: true,
+  status: "live",
+}, // --- Text Tools (Batch 1 — Live) ---
   {
     id: "tool-word-counter",
     name: "Word Counter",
@@ -389,7 +425,25 @@ export const tools: Tool[] = [
     popular: true,
     status: "live",
   },
-
+{
+  id: "tool-percentage-calculator",
+  name: "Percentage Calculator",
+  slug: "percentage-calculator",
+  description:
+    "Solve any percentage problem instantly. Calculate X% of Y, what percent X is of Y, or percentage increase/decrease — all in one tool.",
+  category: "calculators",
+  icon: "info",
+  keywords: [
+    "percentage calculator",
+    "percent calculator",
+    "percentage increase calculator",
+    "percentage decrease",
+    "what percent",
+  ],
+  featured: true,
+  popular: true,
+  status: "live",
+},
   // --- Calculators (Coming Soon) ---
   {
     id: "tool-age-calculator",
@@ -427,7 +481,7 @@ export const tools: Tool[] = [
     ],
     featured: true,
     popular: true,
-    status: "coming-soon",
+    status: "live",
   },
 
   // --- Generators (Coming Soon) ---
@@ -444,4 +498,24 @@ export const tools: Tool[] = [
     popular: false,
     status: "coming-soon",
   },
+
+  {
+  id: "tool-password-generator",
+  name: "Password Generator",
+  slug: "password-generator",
+  description:
+    "Generate strong, secure, random passwords instantly. Choose length, character types, and complexity — all processed locally in your browser.",
+  category: "generators",
+  icon: "fingerprint",
+  keywords: [
+    "password generator",
+    "strong password",
+    "random password",
+    "secure password generator",
+    "password creator",
+  ],
+  featured: true,
+  popular: true,
+  status: "live",
+},
 ];

@@ -19,6 +19,10 @@ import { urlDecoderContent } from "./url-decoder";
 import { uuidGeneratorContent } from "./uuid-generator";
 import { pdfToWordContent } from "./pdf-to-word";
 import { bmiCalculatorContent } from "./bmi-calculator";
+import { passwordGeneratorContent } from "./password-generator";
+import { percentageCalculatorContent } from "./percentage-calculator";
+import { imageCompressorContent } from "./image-compressor";
+import { jwtDecoderContent } from "./jwt-decoder";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -41,6 +45,10 @@ const toolContentMap: ToolContentMap = {
   "uuid-generator": uuidGeneratorContent,
   "pdf-to-word": pdfToWordContent,
   "bmi-calculator": bmiCalculatorContent,
+  "password-generator": passwordGeneratorContent,
+  "percentage-calculator": percentageCalculatorContent,
+  "image-compressor": imageCompressorContent,
+  "jwt-decoder": jwtDecoderContent,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {
