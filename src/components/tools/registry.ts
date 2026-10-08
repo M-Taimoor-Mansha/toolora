@@ -25,6 +25,9 @@ import { PercentageCalculatorTool } from "./calculators/PercentageCalculatorTool
 import { ImageCompressorTool } from "./image/ImageCompressorTool";
 import { JwtDecoderTool } from "./dev/JwtDecoderTool";
 import { HashGeneratorTool } from "./dev/HashGeneratorTool";
+import { TimestampConverterTool } from "./dev/TimestampConverterTool";
+import { UnitConverterTool } from "./calculators/UnitConverterTool";
+import { JsonToCsvTool } from "./dev/JsonToCsvTool";
 
 export interface LiveToolProps {
   tool: Tool;
@@ -66,4 +69,7 @@ export const liveToolComponents: Record<string, ComponentType<LiveToolProps>> = 
   "image-compressor": ImageCompressorTool,
   "jwt-decoder": JwtDecoderTool,
   "hash-generator": HashGeneratorTool,
+  "timestamp-converter": TimestampConverterTool,
+  "unit-converter": UnitConverterTool,
+  "json-to-csv": JsonToCsvTool,
 };

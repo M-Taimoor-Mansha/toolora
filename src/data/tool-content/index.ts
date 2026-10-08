@@ -23,6 +23,9 @@ import { passwordGeneratorContent } from "./password-generator";
 import { percentageCalculatorContent } from "./percentage-calculator";
 import { imageCompressorContent } from "./image-compressor";
 import { jwtDecoderContent } from "./jwt-decoder";
+import { hashGeneratorContent } from "./hash-generator";
+import { unitConverterContent } from "./unit-converter";
+import { jsonToCsvContent } from "./json-to-csv";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -49,6 +52,9 @@ const toolContentMap: ToolContentMap = {
   "percentage-calculator": percentageCalculatorContent,
   "image-compressor": imageCompressorContent,
   "jwt-decoder": jwtDecoderContent,
+  "hash-generator": hashGeneratorContent,
+  "unit-converter": unitConverterContent,
+  "json-to-csv": jsonToCsvContent,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {
