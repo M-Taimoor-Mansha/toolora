@@ -26,6 +26,8 @@ import { jwtDecoderContent } from "./jwt-decoder";
 import { hashGeneratorContent } from "./hash-generator";
 import { unitConverterContent } from "./unit-converter";
 import { jsonToCsvContent } from "./json-to-csv";
+import { colorConverterContent } from "./color-converter";
+import { numberToWordsContent } from "./number-to-words";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -55,6 +57,8 @@ const toolContentMap: ToolContentMap = {
   "hash-generator": hashGeneratorContent,
   "unit-converter": unitConverterContent,
   "json-to-csv": jsonToCsvContent,
+  "color-converter": colorConverterContent,
+  "number-to-words": numberToWordsContent,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {

@@ -29,6 +29,7 @@ import { TimestampConverterTool } from "./dev/TimestampConverterTool";
 import { UnitConverterTool } from "./calculators/UnitConverterTool";
 import { JsonToCsvTool } from "./dev/JsonToCsvTool";
 import { ColorConverterTool } from "./dev/ColorConverterTool";
+import { NumberToWordsTool } from "./dev/NumberToWordsTool";
 
 export interface LiveToolProps {
   tool: Tool;
@@ -74,4 +75,5 @@ export const liveToolComponents: Record<string, ComponentType<LiveToolProps>> = 
   "unit-converter": UnitConverterTool,
   "json-to-csv": JsonToCsvTool,
   "color-converter": ColorConverterTool,
+  "number-to-words": NumberToWordsTool,
 };
