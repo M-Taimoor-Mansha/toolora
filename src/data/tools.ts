@@ -256,6 +256,25 @@ export const tools: Tool[] = [
   popular: true,
   status: "live",
 },
+{
+  id: "tool-color-converter",
+  name: "Color Converter",
+  slug: "color-converter",
+  description:
+    "Convert colors between HEX, RGB, HSL, and HSV instantly. Pick a color or paste a value — with live preview and copy buttons.",
+  category: "developer-tools",
+  icon: "info",
+  keywords: [
+    "color converter",
+    "hex to rgb",
+    "rgb to hex",
+    "hsl converter",
+    "color picker",
+  ],
+  featured: false,
+  popular: true,
+  status: "live",
+},
  // --- Text Tools (Batch 1 — Live) ---
   {
     id: "tool-word-counter",

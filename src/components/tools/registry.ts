@@ -28,6 +28,7 @@ import { HashGeneratorTool } from "./dev/HashGeneratorTool";
 import { TimestampConverterTool } from "./dev/TimestampConverterTool";
 import { UnitConverterTool } from "./calculators/UnitConverterTool";
 import { JsonToCsvTool } from "./dev/JsonToCsvTool";
+import { ColorConverterTool } from "./dev/ColorConverterTool";
 
 export interface LiveToolProps {
   tool: Tool;
@@ -72,4 +73,5 @@ export const liveToolComponents: Record<string, ComponentType<LiveToolProps>> = 
   "timestamp-converter": TimestampConverterTool,
   "unit-converter": UnitConverterTool,
   "json-to-csv": JsonToCsvTool,
+  "color-converter": ColorConverterTool,
 };
