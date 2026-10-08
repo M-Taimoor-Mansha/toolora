@@ -294,6 +294,25 @@ export const tools: Tool[] = [
     popular: true,
     status: "live",
   },
+  {
+  id: "tool-lorem-ipsum",
+  name: "Lorem Ipsum Generator",
+  slug: "lorem-ipsum",
+  description:
+    "Generate Lorem Ipsum placeholder text instantly. Choose paragraphs, sentences, and words per sentence — perfect for design mockups.",
+  category: "generators",
+  icon: "fileText",
+  keywords: [
+    "lorem ipsum",
+    "lorem ipsum generator",
+    "placeholder text",
+    "dummy text",
+    "filler text",
+  ],
+  featured: false,
+  popular: true,
+  status: "live",
+},
   // --- Text Tools (Batch 1 — Live) ---
   {
     id: "tool-word-counter",

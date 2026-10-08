@@ -28,6 +28,7 @@ import { unitConverterContent } from "./unit-converter";
 import { jsonToCsvContent } from "./json-to-csv";
 import { colorConverterContent } from "./color-converter";
 import { numberToWordsContent } from "./number-to-words";
+import { loremIpsumContent } from "./lorem-ipsum";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -59,6 +60,7 @@ const toolContentMap: ToolContentMap = {
   "json-to-csv": jsonToCsvContent,
   "color-converter": colorConverterContent,
   "number-to-words": numberToWordsContent,
+  "lorem-ipsum": loremIpsumContent,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {
