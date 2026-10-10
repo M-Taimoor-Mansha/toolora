@@ -31,6 +31,7 @@ import { JsonToCsvTool } from "./dev/JsonToCsvTool";
 import { ColorConverterTool } from "./dev/ColorConverterTool";
 import { NumberToWordsTool } from "./dev/NumberToWordsTool";
 import { LoremIpsumTool } from "./generators/LoremIpsumTool";
+import { RandomNumberTool } from "./generators/RandomNumberTool";
 
 export interface LiveToolProps {
   tool: Tool;
@@ -78,4 +79,5 @@ export const liveToolComponents: Record<string, ComponentType<LiveToolProps>> = 
   "color-converter": ColorConverterTool,
   "number-to-words": NumberToWordsTool,
   "lorem-ipsum": LoremIpsumTool,
+  "random-number": RandomNumberTool,
 };

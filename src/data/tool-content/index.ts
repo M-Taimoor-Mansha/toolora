@@ -29,6 +29,7 @@ import { jsonToCsvContent } from "./json-to-csv";
 import { colorConverterContent } from "./color-converter";
 import { numberToWordsContent } from "./number-to-words";
 import { loremIpsumContent } from "./lorem-ipsum";
+import { randomNumberContent } from "./random-number";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -61,6 +62,7 @@ const toolContentMap: ToolContentMap = {
   "color-converter": colorConverterContent,
   "number-to-words": numberToWordsContent,
   "lorem-ipsum": loremIpsumContent,
+  "random-number": randomNumberContent,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {
