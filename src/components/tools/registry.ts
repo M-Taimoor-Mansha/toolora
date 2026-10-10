@@ -32,6 +32,7 @@ import { ColorConverterTool } from "./dev/ColorConverterTool";
 import { NumberToWordsTool } from "./dev/NumberToWordsTool";
 import { LoremIpsumTool } from "./generators/LoremIpsumTool";
 import { RandomNumberTool } from "./generators/RandomNumberTool";
+import { QrCodeGeneratorTool } from "./generators/QrCodeGeneratorTool";
 
 export interface LiveToolProps {
   tool: Tool;
@@ -80,4 +81,5 @@ export const liveToolComponents: Record<string, ComponentType<LiveToolProps>> = 
   "number-to-words": NumberToWordsTool,
   "lorem-ipsum": LoremIpsumTool,
   "random-number": RandomNumberTool,
+  "qr-code-generator": QrCodeGeneratorTool,
 };

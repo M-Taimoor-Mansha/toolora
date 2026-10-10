@@ -30,6 +30,7 @@ import { colorConverterContent } from "./color-converter";
 import { numberToWordsContent } from "./number-to-words";
 import { loremIpsumContent } from "./lorem-ipsum";
 import { randomNumberContent } from "./random-number";
+import { qrCodeGeneratorContent } from "./qr-code-generator";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -63,6 +64,7 @@ const toolContentMap: ToolContentMap = {
   "number-to-words": numberToWordsContent,
   "lorem-ipsum": loremIpsumContent,
   "random-number": randomNumberContent,
+  "qr-code-generator": qrCodeGeneratorContent,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {

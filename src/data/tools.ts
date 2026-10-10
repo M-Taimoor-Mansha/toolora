@@ -314,24 +314,24 @@ export const tools: Tool[] = [
     status: "live",
   },
   {
-  id: "tool-random-number",
-  name: "Random Number Generator",
-  slug: "random-number",
-  description:
-    "Generate truly random numbers in any range. Cryptographically secure, with optional duplicates, decimals, and sorting.",
-  category: "generators",
-  icon: "hash",
-  keywords: [
-    "random number generator",
-    "random number",
-    "random number picker",
-    "random integer",
-    "lottery number generator",
-  ],
-  featured: false,
-  popular: true,
-  status: "live",
-},
+    id: "tool-random-number",
+    name: "Random Number Generator",
+    slug: "random-number",
+    description:
+      "Generate truly random numbers in any range. Cryptographically secure, with optional duplicates, decimals, and sorting.",
+    category: "generators",
+    icon: "hash",
+    keywords: [
+      "random number generator",
+      "random number",
+      "random number picker",
+      "random integer",
+      "lottery number generator",
+    ],
+    featured: false,
+    popular: true,
+    status: "live",
+  },
   // --- Text Tools (Batch 1 — Live) ---
   {
     id: "tool-word-counter",
@@ -619,7 +619,7 @@ export const tools: Tool[] = [
   },
 
   // --- Generators (Coming Soon) ---
-  {
+   {
     id: "tool-qr-code-generator",
     name: "QR Code Generator",
     slug: "qr-code-generator",
@@ -635,7 +635,7 @@ export const tools: Tool[] = [
     ],
     featured: true,
     popular: false,
-    status: "coming-soon",
+    status: "live",
   },
 
   {
