@@ -594,8 +594,8 @@ export const tools: Tool[] = [
       "date difference",
     ],
     featured: false,
-    popular: false,
-    status: "coming-soon",
+    popular: true,
+    status: "live",
   },
 
   // --- Image Tools (Coming Soon) ---

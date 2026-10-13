@@ -31,6 +31,7 @@ import { numberToWordsContent } from "./number-to-words";
 import { loremIpsumContent } from "./lorem-ipsum";
 import { randomNumberContent } from "./random-number";
 import { qrCodeGeneratorContent } from "./qr-code-generator";
+import { ageCalculatorContent } from "./age-calculator";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -65,6 +66,7 @@ const toolContentMap: ToolContentMap = {
   "lorem-ipsum": loremIpsumContent,
   "random-number": randomNumberContent,
   "qr-code-generator": qrCodeGeneratorContent,
+  "age-calculator": ageCalculatorContent,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {

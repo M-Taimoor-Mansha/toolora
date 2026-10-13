@@ -33,6 +33,7 @@ import { NumberToWordsTool } from "./dev/NumberToWordsTool";
 import { LoremIpsumTool } from "./generators/LoremIpsumTool";
 import { RandomNumberTool } from "./generators/RandomNumberTool";
 import { QrCodeGeneratorTool } from "./generators/QrCodeGeneratorTool";
+import { AgeCalculatorTool } from "./calculators/AgeCalculatorTool";
 
 export interface LiveToolProps {
   tool: Tool;
@@ -82,4 +83,5 @@ export const liveToolComponents: Record<string, ComponentType<LiveToolProps>> = 
   "lorem-ipsum": LoremIpsumTool,
   "random-number": RandomNumberTool,
   "qr-code-generator": QrCodeGeneratorTool,
+  "age-calculator": AgeCalculatorTool,
 };
