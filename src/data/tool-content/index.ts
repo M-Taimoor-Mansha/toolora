@@ -34,6 +34,7 @@ import { qrCodeGeneratorContent } from "./qr-code-generator";
 import { ageCalculatorContent } from "./age-calculator";
 import { imageResizerContent } from "./image-resizer";
 import { imageToBase64Content } from "./image-to-base64";
+import { timezoneConverterContent } from "./timezone-converter";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -71,6 +72,7 @@ const toolContentMap: ToolContentMap = {
   "age-calculator": ageCalculatorContent,
   "image-resizer": imageResizerContent,
   "image-to-base64": imageToBase64Content,
+  "timezone-converter": timezoneConverterContent,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {
