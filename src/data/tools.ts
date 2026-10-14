@@ -619,7 +619,7 @@ export const tools: Tool[] = [
   },
 
   // --- Generators (Coming Soon) ---
-   {
+  {
     id: "tool-qr-code-generator",
     name: "QR Code Generator",
     slug: "qr-code-generator",
@@ -637,7 +637,44 @@ export const tools: Tool[] = [
     popular: false,
     status: "live",
   },
-
+  {
+    id: "tool-image-resizer",
+    name: "Image Resizer",
+    slug: "image-resizer",
+    description:
+      "Resize JPEG, PNG, and WebP images to any dimensions. Use exact sizes, percentage scaling, or platform presets — all in your browser.",
+    category: "image-tools",
+    icon: "compress",
+    keywords: [
+      "image resizer",
+      "resize image",
+      "resize photo online",
+      "image dimensions",
+      "scale image",
+    ],
+    featured: false,
+    popular: true,
+    status: "live",
+  },
+  {
+  id: "tool-image-to-base64",
+  name: "Image to Base64",
+  slug: "image-to-base64",
+  description:
+    "Convert images to Base64 strings instantly. Get Data URI, CSS, or HTML output — perfect for embedding small images without extra HTTP requests.",
+  category: "image-tools",
+  icon: "binary",
+  keywords: [
+    "image to base64",
+    "base64 encoder image",
+    "data uri",
+    "base64 image converter",
+    "encode image base64",
+  ],
+  featured: false,
+  popular: true,
+  status: "live",
+},
   {
     id: "tool-password-generator",
     name: "Password Generator",

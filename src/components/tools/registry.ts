@@ -34,6 +34,8 @@ import { LoremIpsumTool } from "./generators/LoremIpsumTool";
 import { RandomNumberTool } from "./generators/RandomNumberTool";
 import { QrCodeGeneratorTool } from "./generators/QrCodeGeneratorTool";
 import { AgeCalculatorTool } from "./calculators/AgeCalculatorTool";
+import { ImageResizerTool } from "./image/ImageResizerTool";
+import { ImageToBase64Tool } from "./image/ImageToBase64Tool";
 
 export interface LiveToolProps {
   tool: Tool;
@@ -84,4 +86,6 @@ export const liveToolComponents: Record<string, ComponentType<LiveToolProps>> = 
   "random-number": RandomNumberTool,
   "qr-code-generator": QrCodeGeneratorTool,
   "age-calculator": AgeCalculatorTool,
+  "image-resizer": ImageResizerTool,
+  "image-to-base64": ImageToBase64Tool,
 };

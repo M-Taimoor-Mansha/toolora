@@ -32,6 +32,8 @@ import { loremIpsumContent } from "./lorem-ipsum";
 import { randomNumberContent } from "./random-number";
 import { qrCodeGeneratorContent } from "./qr-code-generator";
 import { ageCalculatorContent } from "./age-calculator";
+import { imageResizerContent } from "./image-resizer";
+import { imageToBase64Content } from "./image-to-base64";
 
 const toolContentMap: ToolContentMap = {
   "word-counter": wordCounterContent,
@@ -67,6 +69,8 @@ const toolContentMap: ToolContentMap = {
   "random-number": randomNumberContent,
   "qr-code-generator": qrCodeGeneratorContent,
   "age-calculator": ageCalculatorContent,
+  "image-resizer": imageResizerContent,
+  "image-to-base64": imageToBase64Content,
 };
 
 export function getToolContent(slug: string): ToolContent | undefined {
