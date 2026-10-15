@@ -3,6 +3,8 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import type { Tool } from "@/data/types";
 import { Icon } from "@/components/icons";
+import { useToolLimiter } from "@/lib/use-tool-limiter";
+import { UpgradePrompt } from "@/components/ui/UpgradePrompt";
 
 interface ImageCompressorToolProps {
   tool: Tool;
@@ -33,22 +35,42 @@ export function ImageCompressorTool({ tool }: ImageCompressorToolProps) {
   const [result, setResult] = useState<CompressedResult | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [limitError, setLimitError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleFile = useCallback((selectedFile: File) => {
-    if (!selectedFile.type.startsWith("image/")) {
-      alert("Please select a valid image file.");
-      return;
-    }
-    if (selectedFile.size > 50 * 1024 * 1024) {
-      alert("File is too large. Maximum size is 50 MB.");
-      return;
-    }
-    setFile(selectedFile);
-    setResult(null);
-    const url = URL.createObjectURL(selectedFile);
-    setOriginalUrl(url);
-  }, []);
+  const limiter = useToolLimiter({
+    toolSlug: "image-compressor",
+    maxFreeSize: 10 * 1024 * 1024, // 10 MB
+    maxFreeBatch: 1,
+  });
+
+  const handleFile = useCallback(
+    (selectedFile: File) => {
+      if (!selectedFile.type.startsWith("image/")) {
+        alert("Please select a valid image file.");
+        return;
+      }
+
+      // Freemium limit check
+      const limitCheck = limiter.check(selectedFile.size, 1);
+      if (!limitCheck.canProcess) {
+        setLimitError(limitCheck.reason || "Limit exceeded");
+        setFile(null);
+        setResult(null);
+        if (originalUrl) URL.revokeObjectURL(originalUrl);
+        setOriginalUrl(null);
+        if (inputRef.current) inputRef.current.value = "";
+        return;
+      }
+
+      setLimitError(null);
+      setFile(selectedFile);
+      setResult(null);
+      const url = URL.createObjectURL(selectedFile);
+      setOriginalUrl(url);
+    },
+    [limiter, originalUrl]
+  );
 
   const onDrop = useCallback(
     (e: React.DragEvent<HTMLDivElement>) => {
@@ -113,6 +135,9 @@ export function ImageCompressorTool({ tool }: ImageCompressorToolProps) {
         width: targetW,
         height: targetH,
       });
+
+      // Record usage
+      limiter.record(1);
     } catch (err) {
       alert(
         err instanceof Error
@@ -122,7 +147,7 @@ export function ImageCompressorTool({ tool }: ImageCompressorToolProps) {
     } finally {
       setIsProcessing(false);
     }
-  }, [file, format, quality, maxWidth, maxHeight, result]);
+  }, [file, format, quality, maxWidth, maxHeight, result, limiter]);
 
   const download = useCallback(() => {
     if (!result || !file) return;
@@ -144,6 +169,7 @@ export function ImageCompressorTool({ tool }: ImageCompressorToolProps) {
     setResult(null);
     setMaxWidth("");
     setMaxHeight("");
+    setLimitError(null);
     if (inputRef.current) inputRef.current.value = "";
   }, [originalUrl, result]);
 
@@ -189,7 +215,7 @@ export function ImageCompressorTool({ tool }: ImageCompressorToolProps) {
             Drop your image here or click to upload
           </p>
           <p className="mt-1 text-sm text-ink-3">
-            JPEG, PNG, or WebP · Maximum 50 MB
+            JPEG, PNG, or WebP · Maximum 10 MB free
           </p>
         </div>
       ) : (
@@ -227,9 +253,7 @@ export function ImageCompressorTool({ tool }: ImageCompressorToolProps) {
                     {formatBytes(result.size)}
                     <span className="ml-2 text-xs font-normal text-ink-3">
                       (
-                      {Math.round(
-                        (1 - result.size / file.size) * 100
-                      )}
+                      {Math.round((1 - result.size / file.size) * 100)}
                       % smaller)
                     </span>
                   </p>
@@ -344,6 +368,11 @@ export function ImageCompressorTool({ tool }: ImageCompressorToolProps) {
             </button>
           </div>
         </>
+      )}
+
+      {/* Upgrade Prompt */}
+      {limitError && (
+        <UpgradePrompt title="Free Limit Reached" message={limitError} />
       )}
     </div>
   );
