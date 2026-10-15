@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import QRCode from "qrcode";
 import type { Tool } from "@/data/types";
 import { Icon } from "@/components/icons";
+import { UpgradePrompt } from "@/components/ui/UpgradePrompt";
 
 interface QrCodeGeneratorToolProps {
   tool: Tool;
@@ -30,6 +31,7 @@ export function QrCodeGeneratorTool({ tool }: QrCodeGeneratorToolProps) {
   const [dataUrl, setDataUrl] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [showProUpgrade, setShowProUpgrade] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // Generate QR code whenever settings change
@@ -85,7 +87,6 @@ export function QrCodeGeneratorTool({ tool }: QrCodeGeneratorToolProps) {
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     } catch {
-      // Fallback: copy URL text
       try {
         await navigator.clipboard.writeText(text);
         setCopied(true);
@@ -250,6 +251,48 @@ export function QrCodeGeneratorTool({ tool }: QrCodeGeneratorToolProps) {
               className="mt-3 w-full accent-brand-600"
             />
           </div>
+
+          {/* Pro Feature: Logo */}
+          <div className="rounded-xl border border-dashed border-brand-400/50 bg-brand-50/30 p-4 dark:bg-brand-950/20">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="flex items-center gap-2 text-sm font-bold text-ink">
+                  <Icon name="arrowUpRight" className="h-4 w-4 text-brand-600" />
+                  Add Logo to QR Code
+                </p>
+                <p className="mt-1 text-xs text-ink-3">
+                  Pro feature — embed your brand logo in the center
+                </p>
+              </div>
+              <button
+                onClick={() => setShowProUpgrade(true)}
+                className="shrink-0 rounded-lg bg-brand-600 px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-brand-700"
+              >
+                Upgrade
+              </button>
+            </div>
+          </div>
+
+          {/* Pro Feature: Dynamic QR */}
+          <div className="rounded-xl border border-dashed border-brand-400/50 bg-brand-50/30 p-4 dark:bg-brand-950/20">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="flex items-center gap-2 text-sm font-bold text-ink">
+                  <Icon name="arrowUpRight" className="h-4 w-4 text-brand-600" />
+                  Dynamic QR (Editable URL)
+                </p>
+                <p className="mt-1 text-xs text-ink-3">
+                  Pro feature — change the destination without reprinting
+                </p>
+              </div>
+              <button
+                onClick={() => setShowProUpgrade(true)}
+                className="shrink-0 rounded-lg bg-brand-600 px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-brand-700"
+              >
+                Upgrade
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Preview */}
@@ -299,6 +342,14 @@ export function QrCodeGeneratorTool({ tool }: QrCodeGeneratorToolProps) {
           Reset
         </button>
       </div>
+
+      {/* Upgrade Prompt */}
+      {showProUpgrade && (
+        <UpgradePrompt
+          title="Pro Feature"
+          message="Adding a logo to your QR code and dynamic QR codes are Pro features. Upgrade to unlock them."
+        />
+      )}
     </div>
   );
 }
