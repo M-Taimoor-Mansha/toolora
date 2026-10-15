@@ -31,9 +31,6 @@ export const viewport: Viewport = {
 /**
  * Applies the stored theme (or the OS preference) before first paint to
  * prevent a flash of the wrong theme. Kept dependency-free and defensive.
- *
- * - Runs before React hydration (inline script)
- * - Uses suppressHydrationWarning on the tag to avoid mismatch warnings
  */
 const themeBootstrapScript = `(function(){try{var t=localStorage.getItem("${SITE.themeStorageKey}");var d=t==="dark"||((t===null||t==="system")&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);}catch(e){}})();`;
 
@@ -60,12 +57,30 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           rel="stylesheet"
         />
 
-        {/* Google AdSense — must be a plain <script> tag, not next/script */}
+        {/* Google AdSense — must be a plain <script> tag */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5812302044853935"
           crossOrigin="anonymous"
+        />
+
+        {/* Google Analytics 4 */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-V71VL7ZD7X"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-V71VL7ZD7X');
+            `,
+          }}
+          suppressHydrationWarning
         />
       </head>
       <body
