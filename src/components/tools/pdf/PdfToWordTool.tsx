@@ -4,6 +4,8 @@ import { useState, useRef, useCallback } from "react";
 import type { Tool } from "@/data/types";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/icons";
+import { useToolLimiter } from "@/lib/use-tool-limiter";
+import { UpgradePrompt } from "@/components/ui/UpgradePrompt";
 
 interface PdfToWordToolProps {
   tool: Tool;
@@ -18,7 +20,14 @@ export function PdfToWordTool({ tool }: PdfToWordToolProps) {
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [downloadName, setDownloadName] = useState<string>("");
   const [isDragging, setIsDragging] = useState(false);
+  const [limitError, setLimitError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const limiter = useToolLimiter({
+    toolSlug: "pdf-to-word",
+    maxFreeSize: 5 * 1024 * 1024, // 5 MB
+    maxFreeBatch: 1,
+  });
 
   const reset = useCallback(() => {
     setFile(null);
@@ -26,25 +35,38 @@ export function PdfToWordTool({ tool }: PdfToWordToolProps) {
     setMessage("");
     setDownloadUrl(null);
     setDownloadName("");
+    setLimitError(null);
     if (inputRef.current) inputRef.current.value = "";
   }, []);
 
-  const handleFile = useCallback((selectedFile: File) => {
-    if (selectedFile.type !== "application/pdf") {
-      setStatus("error");
-      setMessage("Please select a valid PDF file.");
-      return;
-    }
-    if (selectedFile.size > 50 * 1024 * 1024) {
-      setStatus("error");
-      setMessage("File is too large. Maximum size is 50 MB.");
-      return;
-    }
-    setFile(selectedFile);
-    setStatus("idle");
-    setMessage("");
-    setDownloadUrl(null);
-  }, []);
+  const handleFile = useCallback(
+    (selectedFile: File) => {
+      if (selectedFile.type !== "application/pdf") {
+        setStatus("error");
+        setMessage("Please select a valid PDF file.");
+        return;
+      }
+
+      // Freemium limit check
+      const limitCheck = limiter.check(selectedFile.size, 1);
+      if (!limitCheck.canProcess) {
+        setLimitError(limitCheck.reason || "Limit exceeded");
+        setFile(null);
+        setStatus("idle");
+        setMessage("");
+        setDownloadUrl(null);
+        if (inputRef.current) inputRef.current.value = "";
+        return;
+      }
+
+      setLimitError(null);
+      setFile(selectedFile);
+      setStatus("idle");
+      setMessage("");
+      setDownloadUrl(null);
+    },
+    [limiter]
+  );
 
   const onDrop = useCallback(
     (e: React.DragEvent<HTMLDivElement>) => {
@@ -130,6 +152,9 @@ p { margin: 0 0 10pt 0; }
       setDownloadName(name);
       setStatus("done");
       setMessage("Conversion complete! Click Download to save your Word file.");
+
+      // Record usage
+      limiter.record(1);
     } catch (err) {
       const errorMessage =
         err instanceof Error
@@ -138,7 +163,7 @@ p { margin: 0 0 10pt 0; }
       setStatus("error");
       setMessage(errorMessage);
     }
-  }, [file]);
+  }, [file, limiter]);
 
   const download = useCallback(() => {
     if (!downloadUrl || !downloadName) return;
@@ -152,6 +177,7 @@ p { margin: 0 0 10pt 0; }
 
   return (
     <div className="space-y-6">
+      {/* Upload Area */}
       <div
         onDrop={onDrop}
         onDragOver={(e) => {
@@ -185,10 +211,19 @@ p { margin: 0 0 10pt 0; }
         <p className="mt-1 text-sm text-ink-3">
           {file
             ? `${(file.size / 1024 / 1024).toFixed(2)} MB`
-            : "Maximum 50 MB · PDF files only"}
+            : "Maximum 5 MB free · Upgrade to Pro for 100 MB"}
         </p>
       </div>
 
+      {/* Upgrade Prompt (limit exceeded) */}
+      {limitError && (
+        <UpgradePrompt
+          title="Free Limit Reached"
+          message={limitError}
+        />
+      )}
+
+      {/* Status Message */}
       {message ? (
         <div
           className={`rounded-xl border p-4 text-sm ${
@@ -203,6 +238,7 @@ p { margin: 0 0 10pt 0; }
         </div>
       ) : null}
 
+      {/* Actions */}
       <div className="flex flex-wrap gap-3">
         <Button
           onClick={convert}
