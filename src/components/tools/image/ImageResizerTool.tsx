@@ -3,6 +3,8 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import type { Tool } from "@/data/types";
 import { Icon } from "@/components/icons";
+import { useToolLimiter } from "@/lib/use-tool-limiter";
+import { UpgradePrompt } from "@/components/ui/UpgradePrompt";
 
 interface ImageResizerToolProps {
   tool: Tool;
@@ -50,7 +52,14 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
   const [result, setResult] = useState<{ url: string; size: number; w: number; h: number } | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [limitError, setLimitError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const limiter = useToolLimiter({
+    toolSlug: "image-resizer",
+    maxFreeSize: 10 * 1024 * 1024, // 10 MB
+    maxFreeBatch: 1,
+  });
 
   const reset = useCallback(() => {
     if (originalUrl) URL.revokeObjectURL(originalUrl);
@@ -61,6 +70,7 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
     setResult(null);
     setWidth("");
     setHeight("");
+    setLimitError(null);
     if (inputRef.current) inputRef.current.value = "";
   }, [originalUrl, result]);
 
@@ -70,10 +80,20 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
         alert("Please select a valid image file.");
         return;
       }
-      if (selectedFile.size > 50 * 1024 * 1024) {
-        alert("File is too large. Maximum size is 50 MB.");
+
+      // Freemium limit check
+      const limitCheck = limiter.check(selectedFile.size, 1);
+      if (!limitCheck.canProcess) {
+        setLimitError(limitCheck.reason || "Limit exceeded");
+        setFile(null);
+        setResult(null);
+        if (originalUrl) URL.revokeObjectURL(originalUrl);
+        setOriginalUrl(null);
+        if (inputRef.current) inputRef.current.value = "";
         return;
       }
+
+      setLimitError(null);
 
       if (originalUrl) URL.revokeObjectURL(originalUrl);
       if (result?.url) URL.revokeObjectURL(result.url);
@@ -92,7 +112,7 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
       };
       img.src = url;
     },
-    [originalUrl, result]
+    [limiter, originalUrl, result]
   );
 
   const onDrop = useCallback(
@@ -105,7 +125,6 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
     [handleFile]
   );
 
-  // Sync width/height when lock aspect is on
   const handleWidthChange = (v: string) => {
     setWidth(v);
     if (lockAspect && originalDims) {
@@ -128,7 +147,6 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
     }
   };
 
-  // Compute final target dimensions
   const targetDims = (() => {
     if (!originalDims) return null;
     if (mode === "dimensions") {
@@ -144,7 +162,6 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
         h: Math.round(originalDims.h * scale),
       };
     }
-    // preset
     const preset = PRESETS[presetIdx];
     return { w: preset.width, h: preset.height };
   })();
@@ -189,12 +206,15 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
         w: targetDims.w,
         h: targetDims.h,
       });
+
+      // Record usage
+      limiter.record(1);
     } catch (err) {
       alert(err instanceof Error ? err.message : "Resize failed.");
     } finally {
       setIsProcessing(false);
     }
-  }, [file, targetDims, format, quality, result]);
+  }, [file, targetDims, format, quality, result, limiter]);
 
   const download = useCallback(() => {
     if (!result || !file) return;
@@ -253,7 +273,7 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
             Drop your image here or click to upload
           </p>
           <p className="mt-1 text-sm text-ink-3">
-            JPEG, PNG, or WebP · Maximum 50 MB
+            JPEG, PNG, or WebP · Maximum 10 MB free
           </p>
         </div>
       ) : (
@@ -305,7 +325,6 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
 
           {/* Settings */}
           <div className="rounded-2xl border border-line bg-surface p-6 space-y-5">
-            {/* Mode */}
             <div>
               <label className="mb-2 block text-sm font-semibold text-ink">
                 Resize Method
@@ -331,7 +350,6 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
               </div>
             </div>
 
-            {/* Dimensions */}
             {mode === "dimensions" && (
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
@@ -370,7 +388,6 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
               </div>
             )}
 
-            {/* Percentage */}
             {mode === "percentage" && (
               <div>
                 <div className="flex items-center justify-between">
@@ -395,7 +412,6 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
               </div>
             )}
 
-            {/* Preset */}
             {mode === "preset" && (
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-ink">
@@ -415,7 +431,6 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
               </div>
             )}
 
-            {/* Output Format */}
             <div>
               <label className="mb-2 block text-sm font-semibold text-ink">
                 Output Format
@@ -441,7 +456,6 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
               </div>
             </div>
 
-            {/* Quality (not for PNG) */}
             {format !== "image/png" && (
               <div>
                 <div className="flex items-center justify-between">
@@ -487,6 +501,11 @@ export function ImageResizerTool({ tool }: ImageResizerToolProps) {
             </button>
           </div>
         </>
+      )}
+
+      {/* Upgrade Prompt */}
+      {limitError && (
+        <UpgradePrompt title="Free Limit Reached" message={limitError} />
       )}
     </div>
   );
