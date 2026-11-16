@@ -1,20 +1,21 @@
 # Toolora
 
-\<p align="center">   \<strong>Free Online Tools for Everyone\</strong> \</p>
+**Free Online Tools for Everyone**
 
-\<p align="center">   A growing collection of fast, practical and privacy-conscious online tools for developers, students, writers, marketers, designers and creators. \</p>
+A growing collection of fast, practical, and privacy-conscious online tools for developers, students, writers, marketers, designers, and creators.
 
-\<p align="center">   \<a href="[https://toolora-green.vercel.app](https://toolora-green.vercel.app)">Visit Toolora\</a> ·   \<a href="[https://github.com/M-Taimoor-Mansha/toolora](https://github.com/M-Taimoor-Mansha/toolora)">GitHub Repository\</a> \</p>
+**Website:** [Visit Toolora](https://toolora-green.vercel.app)  
+**Repository:** [GitHub Repository](https://github.com/M-Taimoor-Mansha/toolora)
 
 ---
 
 ## About Toolora
 
-**Toolora** is an all-in-one collection of free online tools designed to make everyday digital tasks faster, easier and more accessible.
+**Toolora** is an all-in-one collection of free online tools designed to make everyday digital tasks faster, easier, and more accessible.
 
-Whether you need to format JSON, convert text, calculate percentages, compress images, generate passwords, work with PDFs or perform other everyday tasks, Toolora brings useful utilities together in one convenient platform.
+Whether you need to format JSON, convert text, calculate percentages, compress images, generate passwords, work with PDFs, or perform other everyday tasks, Toolora brings useful utilities together in one convenient platform.
 
-Instead of installing multiple applications, creating accounts or navigating complicated software, users can access practical tools directly through their web browser.
+Instead of installing multiple applications, creating accounts, or navigating complicated software, users can access practical tools directly through their web browser.
 
 ### Our Philosophy
 
@@ -23,22 +24,22 @@ Toolora is built around four core principles:
 - **Accessibility:** Essential online utilities should be easy to find and use.
 - **Simplicity:** Every tool should have a clear purpose and straightforward interface.
 - **Privacy:** User-provided text and files should be processed locally whenever the implementation supports it.
-- **Performance:** Tools should be fast, responsive and accessible across modern devices.
+- **Performance:** Tools should be fast, responsive, and accessible across modern devices.
 
 ### Key Highlights
 
 - 37 registered tools across 8 categories.
 - Free-to-access online utility platform.
 - No account registration required for normal tool usage.
-- Responsive interface for desktop, tablet and mobile devices.
+- Responsive interface for desktop, tablet, and mobile devices.
 - Light and dark themes.
 - Searchable tool directory.
 - Category-based browsing and filtering.
 - Featured and popular tool collections.
 - Individual pages for every tool.
-- Copy, download and export functionality where supported.
+- Copy, download, and export functionality where supported.
 - Search-engine-friendly page metadata.
-- Additional tools can be integrated through a centralized registry.
+- Centralized architecture for integrating additional tools.
 
 ---
 
@@ -48,69 +49,69 @@ Toolora currently contains 37 registered tools organized into eight categories.
 
 ### 1. Developer Tools
 
-Utilities designed for developers, programmers and people working with structured data.
+Utilities designed for developers, programmers, and people working with structured data.
 
-| Tool                | Description                                                 |
-| ------------------- | ----------------------------------------------------------- |
-| JSON Formatter      | Format and beautify JSON with configurable indentation.     |
-| JSON Validator      | Validate JSON syntax and identify errors.                   |
-| JSON Minifier       | Remove unnecessary whitespace from JSON.                    |
-| Base64 Encoder      | Encode text into Base64 format.                             |
-| Base64 Decoder      | Decode Base64 strings into readable text.                   |
-| URL Encoder         | Encode text for safe URL usage.                             |
-| URL Decoder         | Decode URL-encoded strings.                                 |
-| UUID Generator      | Generate unique UUID identifiers.                           |
-| JWT Decoder         | Decode JSON Web Tokens and inspect their contents.          |
-| Hash Generator      | Generate MD5, SHA-256 and SHA-512 hashes.                   |
+| Tool | Description |
+|---|---|
+| JSON Formatter | Format and beautify JSON with configurable indentation. |
+| JSON Validator | Validate JSON syntax and identify errors. |
+| JSON Minifier | Remove unnecessary whitespace from JSON. |
+| Base64 Encoder | Encode text into Base64 format. |
+| Base64 Decoder | Decode Base64 strings into readable text. |
+| URL Encoder | Encode text for safe URL usage. |
+| URL Decoder | Decode URL-encoded strings. |
+| UUID Generator | Generate unique UUID identifiers. |
+| JWT Decoder | Decode JSON Web Tokens and inspect their contents. |
+| Hash Generator | Generate MD5, SHA-256, and SHA-512 hashes. |
 | Timestamp Converter | Convert Unix timestamps into readable dates and vice versa. |
-| JSON to CSV         | Convert JSON arrays into CSV files.                         |
-| Color Converter     | Convert between HEX, RGB, HSL and HSV color formats.        |
-| Time Zone Converter | Convert dates and times between time zones.                 |
-| Number to Words     | Convert numerical values into written English words.        |
+| JSON to CSV | Convert JSON arrays into CSV files. |
+| Color Converter | Convert between HEX, RGB, HSL, and HSV color formats. |
+| Time Zone Converter | Convert dates and times between time zones. |
+| Number to Words | Convert numerical values into written English words. |
 
 ### 2. Text Tools
 
-Text utilities for writers, students, content creators and everyday users.
+Text utilities for writers, students, content creators, and everyday users.
 
-| Tool                   | Description                                                                         |
-| ---------------------- | ----------------------------------------------------------------------------------- |
-| Word Counter           | Count words, characters, sentences and paragraphs, with reading-time estimates.     |
-| Character Counter      | Count total characters and characters excluding spaces or line breaks.              |
-| Sentence Counter       | Count sentences and calculate average sentence length.                              |
-| Paragraph Counter      | Count meaningful paragraphs, words and characters.                                  |
-| Case Converter         | Convert text into uppercase, lowercase, title case, sentence case and inverse case. |
-| Remove Duplicate Lines | Remove repeated lines while preserving their original order.                        |
-| Remove Extra Spaces    | Clean unnecessary spaces and whitespace.                                            |
-| Text Sorter            | Sort text lines alphabetically or numerically.                                      |
-| Text Reverser          | Reverse text, individual lines or word order.                                       |
-| Slug Generator         | Generate clean, URL-friendly slugs from text.                                       |
+| Tool | Description |
+|---|---|
+| Word Counter | Count words, characters, sentences, and paragraphs, with reading-time estimates. |
+| Character Counter | Count total characters and characters excluding spaces or line breaks. |
+| Sentence Counter | Count sentences and calculate average sentence length. |
+| Paragraph Counter | Count meaningful paragraphs, words, and characters. |
+| Case Converter | Convert text into uppercase, lowercase, title case, sentence case, and inverse case. |
+| Remove Duplicate Lines | Remove repeated lines while preserving their original order. |
+| Remove Extra Spaces | Clean unnecessary spaces and whitespace. |
+| Text Sorter | Sort text lines alphabetically or numerically. |
+| Text Reverser | Reverse text, individual lines, or word order. |
+| Slug Generator | Generate clean, URL-friendly slugs from text. |
 
 ### 3. Image Tools
 
 Browser-based image utilities for everyday image processing.
 
-| Tool             | Description                                                            |
-| ---------------- | ---------------------------------------------------------------------- |
-| Image Compressor | Compress images with adjustable quality, output format and dimensions. |
-| Image Resizer    | Resize images using custom dimensions or percentage scaling.           |
-| Image to Base64  | Convert images into Base64 strings, Data URIs, CSS or HTML output.     |
+| Tool | Description |
+|---|---|
+| Image Compressor | Compress images with adjustable quality, output format, and dimensions. |
+| Image Resizer | Resize images using custom dimensions or percentage scaling. |
+| Image to Base64 | Convert images into Base64 strings, Data URIs, CSS, or HTML output. |
 
 ### 4. PDF Tools
 
-| Tool        | Description                                                                          |
-| ----------- | ------------------------------------------------------------------------------------ |
+| Tool | Description |
+|---|---|
 | PDF to Word | Extract text from PDF documents and convert it into editable Word documents (.docx). |
 
-**Note:** The PDF to Word implementation extracts selectable PDF text. Scanned image-only PDFs require OCR before conversion. Complex original page layouts may not be preserved.
+**PDF conversion note:** The current implementation extracts selectable PDF text. Scanned image-only PDFs require OCR before conversion. Complex original page layouts may not be preserved.
 
 ### 5. Calculators
 
-| Tool                  | Description                                                                                    |
-| --------------------- | ---------------------------------------------------------------------------------------------- |
-| Unit Converter        | Convert between 100+ units covering length, weight, temperature, volume, area, speed and time. |
-| BMI Calculator        | Calculate Body Mass Index and view the corresponding weight category.                          |
-| Percentage Calculator | Calculate percentages, percentage increases and decreases, and related percentage problems.    |
-| Age Calculator        | Calculate age in years, months and days, with additional time breakdowns.                      |
+| Tool | Description |
+|---|---|
+| Unit Converter | Convert between units covering length, weight, temperature, volume, area, speed, and time. |
+| BMI Calculator | Calculate Body Mass Index and view the corresponding weight category. |
+| Percentage Calculator | Calculate percentages, percentage increases and decreases, and related percentage problems. |
+| Age Calculator | Calculate age in years, months, and days, with additional time breakdowns. |
 
 ### 6. Converters
 
@@ -122,33 +123,33 @@ This category is available in the category structure for future SEO utilities.
 
 ### 8. Generators
 
-| Tool                    | Description                                                                                 |
-| ----------------------- | ------------------------------------------------------------------------------------------- |
-| Lorem Ipsum Generator   | Generate placeholder text with configurable paragraphs and sentences.                       |
-| Random Number Generator | Generate random numbers with configurable ranges, duplicates, decimals and sorting options. |
-| QR Code Generator       | Generate QR codes for links, Wi-Fi credentials and text, with downloadable PNG output.      |
-| Password Generator      | Generate random passwords with configurable length, character types and complexity.         |
+| Tool | Description |
+|---|---|
+| Lorem Ipsum Generator | Generate placeholder text with configurable paragraphs and sentences. |
+| Random Number Generator | Generate random numbers with configurable ranges, duplicates, decimals, and sorting options. |
+| QR Code Generator | Generate QR codes for links, Wi-Fi credentials, and text, with downloadable PNG output. |
+| Password Generator | Generate random passwords with configurable length, character types, and complexity. |
 
 ---
 
 ## Technology Stack
 
-Toolora uses a modern frontend technology stack focused on performance, maintainability and a clean development experience.
+Toolora uses a modern frontend technology stack focused on performance, maintainability, and a clean development experience.
 
-| Technology     | Purpose                                         |
-| -------------- | ----------------------------------------------- |
-| Next.js 16     | Application framework and routing               |
-| React 19       | User interface development                      |
-| TypeScript 5.9 | Static typing and safer development             |
-| Tailwind CSS 4 | Utility-first styling                           |
-| PostCSS        | CSS processing                                  |
-| ESLint 9       | Code quality and linting                        |
-| PDF.js         | PDF document processing and text extraction     |
-| Mammoth        | Word document generation and processing support |
-| FileSaver.js   | Client-side file downloads                      |
-| QRCode         | QR code generation                              |
-| SparkMD5       | MD5 hashing                                     |
-| Vercel         | Deployment and hosting                          |
+| Technology | Purpose |
+|---|---|
+| Next.js 16 | Application framework and routing |
+| React 19 | User interface development |
+| TypeScript 5.9 | Static typing and safer development |
+| Tailwind CSS 4 | Utility-first styling |
+| PostCSS | CSS processing |
+| ESLint 9 | Code quality and linting |
+| PDF.js | PDF document processing and text extraction |
+| Mammoth | Word document processing support |
+| FileSaver.js | Client-side file downloads |
+| QRCode | QR code generation |
+| SparkMD5 | MD5 hashing |
+| Vercel | Deployment and hosting |
 
 ### Development Tools
 
@@ -164,7 +165,7 @@ Toolora uses a modern frontend technology stack focused on performance, maintain
 
 Toolora uses the Next.js App Router architecture.
 
-The application separates tool metadata, reusable components, individual tool implementations and shared utilities.
+The application separates tool metadata, reusable components, individual tool implementations, and shared utilities.
 
 ### Project Structure
 
@@ -237,9 +238,7 @@ toolora/
 
 `src/components/tools/registry.ts`
 
-Maps tool slugs to their corresponding React components.
-
-This allows the application to load the appropriate implementation for each individual tool.
+Maps tool slugs to their corresponding React components. This allows the application to load the appropriate implementation for each individual tool.
 
 **Tool Metadata**
 
@@ -276,14 +275,14 @@ Provides reusable functions for:
 - Calculating category tool counts.
 - Retrieving featured tools.
 - Retrieving popular tools.
-- Searching tool names, descriptions and keywords.
+- Searching tool names, descriptions, and keywords.
 - Finding related tools.
 
 **Site Configuration**
 
 `src/lib/site.ts`
 
-Centralizes the site name, tagline, description, public URL configuration and theme storage key.
+Centralizes the site name, tagline, description, public URL configuration, and theme storage key.
 
 ---
 
@@ -295,7 +294,7 @@ Follow these instructions to run Toolora locally.
 
 Make sure you have installed:
 
-- Node.js (preferably a current supported LTS release).
+- Node.js, preferably a current supported LTS release.
 - npm.
 - Git.
 
@@ -339,23 +338,23 @@ The development server uses Next.js with Webpack.
 
 The following scripts are defined in `package.json`.
 
-| Command             | Description                   |
-| ------------------- | ----------------------------- |
-| `npm run dev`       | Start the development server. |
-| `npm run build`     | Create a production build.    |
-| `npm run start`     | Start the production server.  |
-| `npm run lint`      | Run ESLint checks.            |
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the development server. |
+| `npm run build` | Create a production build. |
+| `npm run start` | Start the production server. |
+| `npm run lint` | Run ESLint checks. |
 | `npm run typecheck` | Run TypeScript type checking. |
 
 ### Production Build
 
-To generate a production build:
+Generate a production build:
 
 ```bash
 npm run build
 ```
 
-To run the production application:
+Run the production application:
 
 ```bash
 npm run start
@@ -532,10 +531,10 @@ Where supported by the individual implementation:
 
 The website also integrates third-party services, including:
 
-- Google AdSense for advertising.
-- Google Analytics 4 for website analytics.
-- Google Fonts for typography.
-- A CDN-hosted PDF.js worker for PDF processing.
+- **Google AdSense:** Advertising.
+- **Google Analytics 4:** Website analytics.
+- **Google Fonts:** Typography.
+- **CDN-hosted PDF.js worker:** PDF processing.
 
 These services may involve external network requests and their own data-handling practices.
 
@@ -570,7 +569,9 @@ Individual pages can define their own:
 
 ### Dynamic Tool Pages
 
-Each tool has its own URL:
+Each tool has its own URL.
+
+Examples:
 
 ```text
 /tools/json-formatter
@@ -603,9 +604,7 @@ The centralized tool metadata makes it easier to maintain consistent description
 
 Toolora is deployed using Vercel.
 
-**Live Website:**
-
-[https://toolora-green.vercel.app](https://toolora-green.vercel.app)
+**Live Website:** [https://toolora-green.vercel.app](https://toolora-green.vercel.app)
 
 ### Deployment Workflow
 
@@ -626,7 +625,7 @@ The project uses Next.js and can be deployed through Vercel's Next.js integratio
 
 ## Contributing
 
-Contributions, suggestions and improvements are welcome.
+Contributions, suggestions, and improvements are welcome.
 
 If you would like to contribute:
 
@@ -684,13 +683,13 @@ The roadmap is indicative, not a commitment that every listed feature is already
 
 ## Contact
 
-For feedback, bug reports, suggestions or collaboration:
+For feedback, bug reports, suggestions, or collaboration:
 
-**Email:** [taimoorc067@gmail.com](mailto\:taimoorc067@gmail.com)
+**Email:** [taimoorc067@gmail.com](mailto:taimoorc067@gmail.com)
 
-**GitHub:** [https://github.com/M-Taimoor-Mansha](https://github.com/M-Taimoor-Mansha)
+**GitHub:** [M-Taimoor-Mansha](https://github.com/M-Taimoor-Mansha)
 
-**Website:** [https://toolora-green.vercel.app](https://toolora-green.vercel.app)
+**Website:** [Toolora](https://toolora-green.vercel.app)
 
 ---
 
@@ -698,14 +697,12 @@ For feedback, bug reports, suggestions or collaboration:
 
 No explicit open-source license was identified in the repository configuration during this review.
 
-Unless a license is added to the repository, the source code should not be assumed to be available for unrestricted reuse, redistribution or modification.
+Unless a license is added to the repository, the source code should not be assumed to be available for unrestricted reuse, redistribution, or modification.
 
 ---
 
-\<p align="center">
-&#x20; \<strong>Toolora\</strong>
-&#x20; \<br />
-&#x20; Free Online Tools for Everyone.
-&#x20; \<br />
-&#x20; Built to make everyday digital tasks simpler.
-\</p>
+**Toolora**
+
+*Free Online Tools for Everyone.*
+
+*Built to make everyday digital tasks simpler.*
